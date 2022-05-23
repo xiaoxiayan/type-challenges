@@ -7,7 +7,6 @@ type First<T extends any[]> = T extends [infer First, ...infer Rest] ? First : n
 // T[number]
 type args = [1, 2, 3]
 // union
-type t1 = args[number]
 // extends union 可以看是否存在
 
 
