@@ -28,4 +28,4 @@ type t2 = "a"
 type t3 = ['a', 'b', 'c']
 type t4 = ['a']
 
-type res = MyExclude<t3, t4>
+type res = MyExclude<t1, t2>
