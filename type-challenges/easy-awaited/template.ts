@@ -13,4 +13,4 @@ type myAwaited3 <T extends Promise<unknown>> = T extends Promise<infer X>
 
 //  相当于递归去解构这个 传入的对象
 //  infer == 相当于去定义一个未知数变量 x （数学中的变量X ，随机变量）
-//  unknown ---> 无所谓是什么东西
+//  unknown ---> 无所谓是什么东西/*  */
