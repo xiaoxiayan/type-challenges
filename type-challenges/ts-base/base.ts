@@ -29,3 +29,23 @@ type saydd = (name: string) => string;
 const funb : saydd = (name: string) => {
    return  `hello ${name}`
 }
+//  吧正则的括号内容提取，
+const a =  'abc'.replace(/a(b)c/, '$1$1$1') // 'b,b,b'
+// p 约束在 传入的值是 promise<string> ,
+type GetValueType<P> = P extends Promise<infer Value> ? Value : never
+
+
+type getValueResult = GetValueType<Promise<'xxp'>>
+
+type arr2 = [1, 2, 3]
+
+type GetSecond<Arr extends unknown[]> =
+  Arr extends [unknown, ...infer Second,] ? Second : never
+
+type res = GetSecond<arr2>
+//  startsWith , 匹配字符串, 前面传入的字符串，是否匹配到里面的内容，以后面传入的为先
+type StartsWith<Str extends string, Prefix extends string> =
+  Str extends `${Prefix}${string}` ? true : false
+type StartsWithResule = StartsWith<'abc', 'a'>
+type StartsWithResule2 = StartsWith<'abc', 'b'>
+
