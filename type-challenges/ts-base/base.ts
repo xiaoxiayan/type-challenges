@@ -48,4 +48,14 @@ type StartsWith<Str extends string, Prefix extends string> =
   Str extends `${Prefix}${string}` ? true : false
 type StartsWithResule = StartsWith<'abc', 'a'>
 type StartsWithResule2 = StartsWith<'abc', 'b'>
+// 输入的字符串 第一个和最后一个是否是 字符串，如果是，那么返回 true，如果不是，那么返回 false
+type ReplaceStr<
+  Str extends string,
+  From extends string,
+  To extends string,
+> =  Str extends `${infer Prefix}${From}${infer Suffix}`
+? `${Prefix}${To}${Suffix}` : Str
+
+type ReplaceStrResule = ReplaceStr<'xxp like music', 'music', 'eat'>
+
 
