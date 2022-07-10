@@ -58,4 +58,36 @@ type ReplaceStr<
 
 type ReplaceStrResule = ReplaceStr<'xxp like music', 'music', 'eat'>
 
+// ## trim
+// 去除左边，
+type TrimStrRight<Str extends string> =
+  Str extends `${infer Rest}${ ' ' | '\n' | '\t' }`
+  ? TrimStrRight<Rest> : Str;
+type StrRight = TrimStrRight<'xxp    '>
 
+// 去除右边
+type TrimStrLeft<Str extends string> =
+ Str extends `${' ' | '\n' | '\t'}${infer Rest}`
+ ? TrimStrLeft<Rest> : Str
+
+type StrLeft = TrimStrLeft<'    xxp'>
+
+type TrimStr<Str extends string> = TrimStrLeft<TrimStrRight<Str>>
+
+type TrimResult = TrimStr<'   xxp   '>
+
+// 函数提取参数，返回值的类型。 返回一个数组
+// 提取参数
+type GetParameters <Func extends Function> =
+  // 解构 args, 参数
+  Func extends (...args: infer Args) => unknown ? Args : never;
+
+type ParamterResult = GetParameters<(name: string, age: number) => string>
+
+// 提取返回值
+
+type GetReturnType<Func extends Function> =
+  Func extends (...args: any[]) => infer ReturnType ? ReturnType : never;
+
+
+type ReturnTypeResullt = GetReturnType<() => 'xxp'>
