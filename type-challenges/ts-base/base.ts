@@ -91,3 +91,29 @@ type GetReturnType<Func extends Function> =
 
 
 type ReturnTypeResullt = GetReturnType<() => 'xxp'>
+
+// 获取 this
+
+class Xxp {
+  name: string;
+
+  constructor() {
+    this.name = 'xxp'
+  }
+  hello(this: Xxp) {
+    return 'hello, I\m' + this.name
+  }
+}
+
+const xp = new Xxp()
+
+xp.hello()
+xp.hello.call({xxx: 1}) // 应该要报错呀
+
+
+type GetThisParameterType<T>
+    = T extends (this: infer ThisType, ...args: any[]) => any
+    ? ThisType
+    : unknown
+
+type GetThisParameterTypeRes = GetThisParameterType<typeof xp.hello>
