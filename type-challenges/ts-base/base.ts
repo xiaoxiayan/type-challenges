@@ -12,8 +12,8 @@ class Person implements IPerson {
   age: number;
 }
 const obj: IPerson = {
-    name: 'xxp',
-    age: 18
+  name: 'xxp',
+  age: 18
 }
 
 // 函数
@@ -26,11 +26,11 @@ const func: sayHello = (name: string) => {
 }
 type saydd = (name: string) => string;
 
-const funb : saydd = (name: string) => {
-   return  `hello ${name}`
+const funb: saydd = (name: string) => {
+  return `hello ${name}`
 }
 //  吧正则的括号内容提取，
-const a =  'abc'.replace(/a(b)c/, '$1$1$1') // 'b,b,b'
+const a = 'abc'.replace(/a(b)c/, '$1$1$1') // 'b,b,b'
 // p 约束在 传入的值是 promise<string> ,
 type GetValueType<P> = P extends Promise<infer Value> ? Value : never
 
@@ -53,22 +53,22 @@ type ReplaceStr<
   Str extends string,
   From extends string,
   To extends string,
-> =  Str extends `${infer Prefix}${From}${infer Suffix}`
-? `${Prefix}${To}${Suffix}` : Str
+  > = Str extends `${infer Prefix}${From}${infer Suffix}`
+  ? `${Prefix}${To}${Suffix}` : Str
 
 type ReplaceStrResule = ReplaceStr<'xxp like music', 'music', 'eat'>
 
 // ## trim
 // 去除左边，
 type TrimStrRight<Str extends string> =
-  Str extends `${infer Rest}${ ' ' | '\n' | '\t' }`
+  Str extends `${infer Rest}${' ' | '\n' | '\t'}`
   ? TrimStrRight<Rest> : Str;
 type StrRight = TrimStrRight<'xxp    '>
 
 // 去除右边
 type TrimStrLeft<Str extends string> =
- Str extends `${' ' | '\n' | '\t'}${infer Rest}`
- ? TrimStrLeft<Rest> : Str
+  Str extends `${' ' | '\n' | '\t'}${infer Rest}`
+  ? TrimStrLeft<Rest> : Str
 
 type StrLeft = TrimStrLeft<'    xxp'>
 
@@ -78,7 +78,7 @@ type TrimResult = TrimStr<'   xxp   '>
 
 // 函数提取参数，返回值的类型。 返回一个数组
 // 提取参数
-type GetParameters <Func extends Function> =
+type GetParameters<Func extends Function> =
   // 解构 args, 参数
   Func extends (...args: infer Args) => unknown ? Args : never;
 
@@ -108,12 +108,14 @@ class Xxp {
 const xp = new Xxp()
 
 xp.hello()
-xp.hello.call({xxx: 1}) // 应该要报错呀
+xp.hello.call({ xxx: 1 }) // 应该要报错呀
 
 
 type GetThisParameterType<T>
-    = T extends (this: infer ThisType, ...args: any[]) => any
-    ? ThisType
-    : unknown
+  = T extends (this: infer ThisType, ...args: any[]) => any
+  ? ThisType
+  : unknown
 
 type GetThisParameterTypeRes = GetThisParameterType<typeof xp.hello>
+
+
