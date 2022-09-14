@@ -21,4 +21,4 @@ function returnFirst (arr) {
 //  1. extends 类型条件判断  .  [] , 数组 [ 1, 2, 3] 这种，在 ts 中都是类型，并不算是一个值
 //  2. 获取 tuple 的 length 属性
 //  2. extends union 判断的规则
-//  2. inter 的使用
+//  2.  的使用
