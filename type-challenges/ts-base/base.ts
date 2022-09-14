@@ -29,3 +29,9 @@ type saydd = (name: string) => string;
 const funb : saydd = (name: string) => {
    return  `hello ${name}`
 }
+
+// 构造器
+interface PersonConstructor {
+  new (name: string, age: number): IPerson;
+}
+/*  */
