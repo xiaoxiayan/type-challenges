@@ -27,6 +27,9 @@ function inheritPrototype(SubType, SupType) {
   })
 
 }
+//
+
+
 
 // 面向对象  特性， 封装， 继承， 多态
 // 封装： 在编写 类 function的 过程就是 封装，
