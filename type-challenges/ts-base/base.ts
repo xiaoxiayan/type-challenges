@@ -28,14 +28,6 @@ type saydd = (name: string) => string;
 
 const funb: saydd = (name: string) => {
   return `hello ${name}`
-<<<<<<< HEAD
-}
-
-// 构造器
-interface PersonConstructor {
-  new(name: string, age: number): IPerson;
-=======
->>>>>>> 2eb30cd575703a2406d61d8d94f259496608d981
 }
 //  吧正则的括号内容提取，
 const a = 'abc'.replace(/a(b)c/, '$1$1$1') // 'b,b,b'

@@ -1,5 +1,5 @@
 function hyCurrying(fn) {
-  console.log('fn--', fn, fn.length)
+
   function curried(...args) {
     console.log('args--', args)
     if (args.length >= fn.length) {

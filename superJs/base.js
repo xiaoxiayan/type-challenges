@@ -39,7 +39,7 @@ removeDuplicate(arrAA)
 // indexof
 // includes
 
-console.log(arrAA)
+// console.log(arrAA)
 // 数组排序
 
 
@@ -55,4 +55,50 @@ function flatNode(node) {
   });
 }
 
-//
+// 关于闭包
+function see(item) {
+  console.log('see=', item)
+  return item
+}
+
+function bbSet(i) {
+  return function () {
+    see(i)
+  }
+}
+var vvad = []
+
+function bibao() {
+  let arr = new Array(5)
+  console.log('bibao=-=', arr)
+  for (let index = 0; index < arr.length; index++) {
+
+  }
+}
+
+bibao()
+console.log(vvad)
+
+
+function showHelp(help) {
+  document.getElementById('help').innerHTML = help;
+}
+
+function setupHelp() {
+  var helpText = [
+    { 'id': 'email', 'help': 'Your e-mail address' },
+    { 'id': 'name', 'help': 'Your full name' },
+    { 'id': 'age', 'help': 'Your age (you must be over 16)' }
+  ];
+
+  for (let i = 0; i < helpText.length; i++) {
+
+    var item = helpText[i];
+    document.getElementById(item.id).onfocus = function () {
+      showHelp(item.help);
+    }
+
+  }
+}
+
+setupHelp();
