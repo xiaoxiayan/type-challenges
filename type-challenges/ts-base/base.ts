@@ -128,7 +128,7 @@ const COLORS = {
   blue: 'blue'
 }
 
-type PersonMan = {
+interface PersonMan {
   age: Number;
   sex: String;
 }
@@ -142,6 +142,10 @@ let color: Colors
 
 type ccc = typeof COLORS
 
-type xiaoming = typeof PersonMan
+
+const asdsd: PersonMan = {
+  age: 18,
+  sex: 'man'
+}
 
 
