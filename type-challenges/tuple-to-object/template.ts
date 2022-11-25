@@ -1,17 +1,17 @@
 type TupleToObject<T extends readonly any[]> = {
-    [P in T[number]] : P
+  [P in T[number]]: P
 }
 const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
 
-type r =  TupleToObject<typeof tuple>
+type r = TupleToObject<typeof tuple>
 
 //  js
 function TupleToObject(arr) {
-    let reslut = {}
-    arr.forEach(el => {
-      reslut[el] = el
-    })
-    return reslut
+  let reslut = {}
+  arr.forEach(el => {
+    reslut[el] = el
+  })
+  return reslut
 }
 
 

@@ -1,6 +1,6 @@
 async function async1() {
   console.log('async1 start')
-  await async2()
+  await async2() // 走了一个微任务
   console.log('async1 end')
 }
 
@@ -18,9 +18,12 @@ setTimeout(function () {
   console.log('setTimeout2')
 }, 300)
 
+// 宏任务
 setImmediate(() => console.log('setImmediate'));
 
+// 微任务
 process.nextTick(() => console.log('nextTick1'));
+// global A [nextTick1 ,  nextTick2,  promise3  ], OA [ awati p ]
 
 async1();
 
@@ -37,17 +40,23 @@ new Promise(function (resolve) {
 console.log('script end')
 
 
+//  整个script 是宏任务， 遇到了微任务 。enqeqeq . 遇到宏任务 加入 宏任务队列， 宏任务中的微任务执行完以后才会执行下一个宏任务
+
+
+
+
+
 
 //  script start
 //  async1 start
 //  async2
-//  async1 edn
 //  promise1
 //  promise2
-//  sript end
+//  script end
 //  nextTick1
 //  nextTick2
+//  async1 end
 //  promise3
-//  setTimeout 0
+//  setTimeout0
 //  setImmediate
 //  setTimeout2

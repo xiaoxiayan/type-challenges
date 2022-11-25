@@ -7,6 +7,7 @@ Promise.resolve().then(() => {
 
 
 
+
 Promise.resolve().then(() => {
   console.log(1);
 }).then(() => {
@@ -20,5 +21,4 @@ Promise.resolve().then(() => {
 })
 
 
-// [,  promise  ]
-//
+

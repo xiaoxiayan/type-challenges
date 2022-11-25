@@ -1,17 +1,45 @@
 
 type MyPick<T, K extends keyof T> = {
-  [P in K] : T[P]
+  [P in K]: T[P]
 }
+
+type oob = {
+  age: Number;
+  name: String;
+  sex: String;
+}
+
+
+
+type pickArr = MyPick<oob, 'age' | 'name'>
+
+let c: pickArr = {
+  age: 18,
+  name: 'xxp'
+}
+
+
+type Person1 = {
+  name: string;
+  age: number;
+}
+
+let man: Person1 = {
+  name: "Semlinker",
+  age: 30
+}
+
+type Human = keyof Person1;
 
 
 // js --> ts
 // js
 
-function myPick (todo, keys) {
+function myPick(todo, keys) {
   let obj
 
   keys.forEach(key => {
-    if(key in todo) {
+    if (key in todo) {
       obj[key] = todo[key]
     }
   });

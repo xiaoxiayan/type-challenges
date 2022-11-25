@@ -115,12 +115,33 @@ type GetThisParameterType<T>
   = T extends (this: infer ThisType, ...args: any[]) => any
   ? ThisType
   : unknown
-<<<<<<< HEAD
-
-type GetThisParameterTypeRes = GetThisParameterType<typeof xp.hello>
-=======
 
 type GetThisParameterTypeRes = GetThisParameterType<typeof xp.hello>
 
 
->>>>>>> 2eb30cd575703a2406d61d8d94f259496608d981
+
+//  keyof, typeof 专项
+
+
+const COLORS = {
+  red: 'red',
+  blue: 'blue'
+}
+
+type PersonMan = {
+  age: Number;
+  sex: String;
+}
+
+type Colors = keyof typeof COLORS
+
+
+let color: Colors
+
+
+
+type ccc = typeof COLORS
+
+type xiaoming = typeof PersonMan
+
+

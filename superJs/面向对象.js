@@ -1,22 +1,22 @@
-var obj = {
+let duix = {
   name: 'why',
   age: 18
 }
 
 // 限制 对象添加属性
-Object.preventExtensions(obj)
+Object.preventExtensions(duix)
 
-obj.aa = 'aa'
+duix.aa = 'aa'
 
 
 
 // 让对象属性不可以修改， writable
 
-Object.freeze(obj)
+Object.freeze(duix)
 
-obj.name = 'ddd'
+duix.name = 'ddd'
 
-console.log(obj)
+console.log(duix)
 function inheritPrototype(SubType, SupType) {
   SubType.prototype = Object.create(SupType.prototype)
   Object.defineProperty(SubType.prototype, 'constructor', {
@@ -47,9 +47,9 @@ function createObject(o) {
   return new Fn()
 }
 
-function object(obj) {
+function duixect(duix) {
   var newObj = {}
-  Object.setPrototypeOf(newObj, obj)
+  Object.setPrototypeOf(newObj, duix)
   return newObj
 }
 
@@ -89,7 +89,56 @@ Student.prototype.studying = function () {
 //   writable: true, // 可写
 //   value: Student, // name
 // })
-Student.prototype
+// Student.prototype
 
 var xiaoming = new Student('xiaoming ', '18', ["xx", 'aa'], '9527', '100')
-console.log(xiaoming)
+// console.log(xiaoming)
+
+
+//  指向练习
+
+var num = 10;
+var odc = {
+  num: 20
+};
+odc.fn = (function (num) {
+  this.num = num * 3;
+  num++;
+  return function (n) {
+    this.num += n;
+    num++;
+    console.log(num); // 12
+  }
+})(odc.num);
+// var fn = odc.fn;
+// fn(5);  // 30 , 6
+// odc.fn(10); // 60 +
+
+// === >
+(function () {
+  var val = 1;
+  var json = {
+    val: 10,
+    dbl: function () {
+      console.log(this, 'val,=-=', val)
+      val *= 2;
+    }
+  };
+  json.dbl();
+  console.log(json.val + val); //=>10+2 =>"12"
+})();
+
+
+
+var o = {
+  a: 10,
+  b: {
+    a: 12,
+    fn: function () {
+      console.log(this.a);
+      console.log(this);
+    }
+  }
+}
+var j = o.b.fn;
+j();
