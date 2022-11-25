@@ -149,3 +149,14 @@ const asdsd: PersonMan = {
 }
 
 
+type Person56 = {
+  age: Number;
+  name: String;
+}
+const Person1 = {
+  age: '18',
+  name: 'xiaohong'
+}
+
+type aa = typeof Person1
+
