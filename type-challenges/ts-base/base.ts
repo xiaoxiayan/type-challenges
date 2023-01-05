@@ -53,7 +53,7 @@ type ReplaceStr<
   Str extends string,
   From extends string,
   To extends string,
-  > = Str extends `${infer Prefix}${From}${infer Suffix}`
+> = Str extends `${infer Prefix}${From}${infer Suffix}`
   ? `${Prefix}${To}${Suffix}` : Str
 
 type ReplaceStrResule = ReplaceStr<'xxp like music', 'music', 'eat'>
@@ -159,4 +159,20 @@ const Person1 = {
 }
 
 type aa = typeof Person1
+
+// object, Object 以及 {}
+// Object 代表顶层，表示的是ts中所有的类型，  但是 undefined 和 null 和 void 需要修改配置才不报错
+const tmp1: Object = 'lxp'
+const tmp2: Object = 599
+
+// object 的引入就是为了解决对 Object 类型的错误使用，它代表所有非原始类型的类型，即数组、对象与函数类型这些
+// object 表示原始类型，基础数据类型 不是具体的值
+const tmp3: object = Number
+const tmp4: object = String
+const tmp5: object = []
+const tmp6: object = null
+
+
+
+
 
