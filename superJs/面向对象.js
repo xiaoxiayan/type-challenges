@@ -120,12 +120,12 @@ odc.fn = (function (num) {
   var json = {
     val: 10,
     dbl: function () {
-      console.log(this, 'val,=-=', val)
-      val *= 2;
+      console.log(this, 'val,=-=', val) // json , 10
+      this.val *= 2;
     }
   };
   json.dbl();
-  console.log(json.val + val); //=>10+2 =>"12"
+  console.log(json.val + val);
 })();
 
 

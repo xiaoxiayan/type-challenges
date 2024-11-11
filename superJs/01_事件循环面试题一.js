@@ -37,6 +37,27 @@ new Promise(function (resolve) {
 });
 
 
+
+// promise1
+// 2
+// then1
+// queueMicrotask1
+// then3
+// setTimeout1
+// then2
+// then4
+// setTimeout2
+
+
+
+
+
+
+
+
+
+
+
 // p1
 // 2
 // then1
